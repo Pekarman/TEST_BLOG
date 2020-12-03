@@ -1,6 +1,6 @@
 <?php 
 include "../includes/config.php";
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,23 +32,23 @@ include "../includes/config.php";
               <div class="block__content">                
 
                 <div class="full-text">
-					Текст о копирайте
-                </div>
-              </div>
-            </div>            
+                 Текст о копирайте
+               </div>
+             </div>
+           </div>            
 
-            
-          </section>
-          <section class="content__right col-md-4">
-            <?php include "../includes/sidebar.php"; ?>          
-          </section>
-        </div>
+           
+         </section>
+         <section class="content__right col-md-4">
+          <?php include "../includes/sidebar.php"; ?>          
+        </section>
       </div>
     </div>
-
-    <?php include "../includes/footer.php"; ?>
-
   </div>
+
+  <?php include "../includes/footer.php"; ?>
+
+</div>
 
 </body>
 </html>
