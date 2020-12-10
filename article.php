@@ -73,7 +73,7 @@ include "includes/config.php";
 								</div>
 							</div>
 							
-							<div class="block">
+							<div class="block" id="comments">
 								<a href="#comment-add-form">Добавить свой</a>
 								<h3>Комментарии</h3>
 								<div class="block__content">
@@ -109,7 +109,7 @@ include "includes/config.php";
 							<div class="block" id="comment-add-form">                     
 								<h3>Добавить комментарий</h3>
 								<div class="block__content">
-									<form class="form" method="POST" action="/article.php?id=<?php echo $_GET['id']; ?> #comment-add-form">
+									<form class="form" method="POST" action="/article.php?id=<?php echo $_GET['id']; ?> #comments">
 
 										<?php
 										if( isset($_POST['do_post']))
