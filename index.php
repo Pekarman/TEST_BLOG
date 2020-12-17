@@ -20,8 +20,6 @@ require "includes/config.php";
 
 	<div id="wrapper">
 
-		<?php include "includes/header.php"; ?>
-
 		<?php
 			if(isset($_POST['register'])){
 				$nickname = $_POST['nickname'];
@@ -59,6 +57,10 @@ require "includes/config.php";
 					$pass = mysqli_fetch_assoc($user);
 					//echo $pass['password'];
 					if(password_verify($password, $pass['password'])){
+
+						//session_start();
+						$_SESSION['islogin'] = true;
+						$_SESSION['user'] = $pass['login'];
 						echo 'Login success';
 					}
 					
@@ -70,6 +72,8 @@ require "includes/config.php";
 			}
 		?>
 
+		<?php include "includes/header.php"; ?>
+		
 		<div id="content">
 			<div class="container">
 				<div class="row">
