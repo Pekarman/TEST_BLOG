@@ -28,18 +28,18 @@ include "../includes/config.php";
 
 						<div class="form__control">
 
-							<input type="text" class="form__control" required="" name="login" placeholder="Login" value="<?php echo $_POST['login'] ?>">
+							<input type="text" class="form__control" required="" name="login" placeholder="Login">
 
 						</div>
 
 						<div class="form__control">
 
-							<input type="text" class="form__control" required="" name="password" placeholder="Password" value="<?php echo $_POST['password'] ?>">
+							<input type="text" class="form__control" required="" name="password" placeholder="Password">
 
 						</div>
 
 						<div class="form__control">
-							<input type="submit" class="form__control" name="do_post" value="Login">							
+							<input type="submit" class="form__control" name="auth" value="Login">							
 						</div>
 
 						<div class="form__group">

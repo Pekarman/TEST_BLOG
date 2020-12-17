@@ -25,6 +25,7 @@ include "includes/config.php";
 		
 		if(isset($_POST['do_post']))
 		{
+			
 			mysqli_query($connection,"INSERT INTO `comments` (`author`,`nickname`,`email`,`text`,`pubdate`,`articles_id`)
 				VALUES ('".$_POST['name']."','".$_POST['nickname']."','".$_POST['email']."','".$_POST['text']."',
 				NOW(),'".$_GET['id']."')");

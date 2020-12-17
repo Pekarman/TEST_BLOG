@@ -27,30 +27,46 @@ require "includes/config.php";
 				$nickname = $_POST['nickname'];
 				$login = $_POST['login'];
 				$email = $_POST['email'];
-				$password = $_POST['password'];
+				$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-				echo $nickname;
-				echo $login;
-				echo $email;
-				echo $password;
-
-
+				//echo $nickname.$login.$email.$password.'<h1>';
+				
 				$result = mysqli_query($connection,"SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1");
 				
-				$row_count = (int) mysqli_num_rows($result);
-				
-				//mysqli_close($connection);
-				
+				$row_count = (int) mysqli_num_rows($result);						
 
 				if($row_count == 1){
-					echo 'Есть совпадение логина' ;
+					echo 'Есть совпадение логина - ' ;
+					echo '<a href = pages/reg.php>Вернуться на страницу регистрации</a>';
 				} else {
-					echo 'Пользователь зарегистрирован';					
-					
-					$q = mysqli_query($connection,"INSERT INTO `users` (`nickname`, `login`, `email`, `password`) VALUES ('$nickname', '$login', '$email', '$password')");
-					
 
+					$q = mysqli_query($connection,"INSERT INTO `users` (`nickname`, `login`, `email`, `password`) VALUES ('$nickname', '$login', '$email', '$password')");
+
+					if($q){
+						echo 'Пользователь зарегистрирован';
+					}					
 				}
+			}
+
+			if(isset($_POST['auth'])){
+				$login = $_POST['login'];
+				$password = $_POST['password'];
+
+				$user = mysqli_query($connection,"SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1 ");
+
+				if($user){
+
+					$pass = mysqli_fetch_assoc($user);
+					//echo $pass['password'];
+					if(password_verify($password, $pass['password'])){
+						echo 'Login success';
+					}
+					
+				} else {
+				 $err = mysqli_error($connection);
+				 echo $err;
+				}
+
 			}
 		?>
 
