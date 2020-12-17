@@ -22,6 +22,38 @@ require "includes/config.php";
 
 		<?php include "includes/header.php"; ?>
 
+		<?php
+			if(isset($_POST['register'])){
+				$nickname = $_POST['nickname'];
+				$login = $_POST['login'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+
+				echo $nickname;
+				echo $login;
+				echo $email;
+				echo $password;
+
+
+				$result = mysqli_query($connection,"SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1");
+				
+				$row_count = (int) mysqli_num_rows($result);
+				
+				//mysqli_close($connection);
+				
+
+				if($row_count == 1){
+					echo 'Есть совпадение логина' ;
+				} else {
+					echo 'Пользователь зарегистрирован';					
+					
+					$q = mysqli_query($connection,"INSERT INTO `users` (`nickname`, `login`, `email`, `password`) VALUES ('$nickname', '$login', '$email', '$password')");
+					
+
+				}
+			}
+		?>
+
 		<div id="content">
 			<div class="container">
 				<div class="row">

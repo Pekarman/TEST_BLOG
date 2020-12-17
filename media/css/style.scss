@@ -232,7 +232,8 @@ body {
   }
 
   .form__control {
-    width: 100%;
+    max-width: 80%;
+    min-width: 40%
     padding: 10px;
     font-size: 16px;
     outline: none;

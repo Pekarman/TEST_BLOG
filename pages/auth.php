@@ -18,36 +18,38 @@ include "../includes/config.php";
 </head>
 <body>
 
-	<div id="wrapper">	
-
+	<div id="wrapper">
 		<div id="content">
 			<div class="container">
-				<div class="row">
-					<h1 align="center">Страница входа</h1>
-					<h1>
-						<form class="form" method="POST" action="/index.php" align="center">
+				
+				<h1 align="center">Страница входа</h1>
+				
+					<form class="form" method="POST" action="/index.php" align="center">
 
-							<div class="container col-md-4">
+						<div class="form__control">
 
-								<div class="col-md-4">
-								<input type="text" class="form__control" required="" name="name" placeholder="Login" value="<?php echo $_POST['name'] ?>">
-								</div>
-								
-								
-								<input type="text" class="form__control" required="" name="nickname" placeholder="Password" value="<?php echo $_POST['nickname'] ?>">
+							<input type="text" class="form__control" required="" name="login" placeholder="Login" value="<?php echo $_POST['login'] ?>">
 
+						</div>
 
-							</div>
-							<div class="form__group">
-								<input type="submit" class="form__control" name="do_post" value="Login">							
-							</div>
-							<div class="form__group">
-								<a href="/pages/reg.php">Registration</a>
-							</div>
-						</form>
+						<div class="form__control">
 
-					</div>
+							<input type="text" class="form__control" required="" name="password" placeholder="Password" value="<?php echo $_POST['password'] ?>">
+
+						</div>
+
+						<div class="form__control">
+							<input type="submit" class="form__control" name="do_post" value="Login">							
+						</div>
+
+						<div class="form__group">
+							<a href="/pages/reg.php">Registration</a>
+						</div>
+
+					</form>
+
 				</div>
+				
 			</div>		
 
 		</div>
